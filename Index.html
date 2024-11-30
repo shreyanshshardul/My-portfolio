@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreyansh Shardul - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 5s ease infinite;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .skill {
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #fff;
+            color: #1a1a1a;
+        }
+
+        .info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .info p {
+            margin: 1rem 0;
+        }
+
+        .contact {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .tagline {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Shreyansh Shardul</h1>
+            <p class="tagline">B.Tech Computer Science Engineering Student</p>
+            
+            <div class="skills">
+                <div class="skill">Frontend Development</div>
+                <div class="skill">C++</div>
+                <div class="skill">Leadership</div>
+                <div class="skill">Problem Solving</div>
+                <div class="skill">Team Work</div>
+                <div class="skill">Time Management</div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://leetcode.com/u/shreyanshshardul7/" class="social-link" target="_blank">LeetCode</a>
+                <a href="https://github.com/shreyanshshardul" class="social-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/shreyansh-shardul-a591a7258/" class="social-link" target="_blank">LinkedIn</a>
+            </div>
+
+            <div class="info">
+                <p>🎓 Currently pursuing B.Tech in Computer Science Engineering from KCC ITM (3rd Year)</p>
+                <p>📊 Maintaining SGPA of 7.8</p>
+                <p>🎯 Goal: Placement in a Product-Based Company</p>
+                <p>🏠 Hometown: Buxar, Bihar</p>
+                <p>📍 Current Location: Delhi NCR</p>
+                <p>⚽ Hobbies: Cricket</p>
+
+                <div class="contact">
+                    <p>📧 Email: shreyanshshardul7@gmail.com</p>
+                    <p>📱 Contact: +917766867474</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 3rem; font-style: italic;">Made with ❤️ in Delhi NCR</p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to skills on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        });
+
+        document.querySelectorAll('.skill').forEach((skill) => {
+            skill.style.opacity = '0';
+            skill.style.transform = 'translateY(20px)';
+            skill.style.transition = 'all 0.5s';
+            observer.observe(skill);
+        });
+    </script>
+</body>
+</html>
